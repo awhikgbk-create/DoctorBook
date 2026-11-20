@@ -1,0 +1,3 @@
+@model IEnumerable<DoctorProfile>
+@{ViewData["Title"]="الأطباء";}
+<section class="section page-section"><h1>دليل الأطباء</h1><form method="get" class="search-box compact"><input name="specialty" placeholder="التخصص"/><input name="city" placeholder="المدينة"/><button class="btn">بحث</button></form><div class="doctor-grid">@foreach(var d in Model){<article class="doctor-card"><div class="avatar">✚</div><span class="tag">@d.Specialty</span><h3>@d.FullName</h3><p>📍 @d.City</p><p>@d.Bio</p><div class="card-bottom"><strong>@d.ConsultationPrice.ToString("0") جنيه</strong><a class="btn small" asp-action="Details" asp-route-id="@d.Id">التفاصيل</a></div></article>}</div></section>
